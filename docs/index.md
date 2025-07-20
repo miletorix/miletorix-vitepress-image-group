@@ -6,14 +6,14 @@ outline: [2, 3]
 sidebar: false
 ---
 
-# miletorix-vitepress-image-group
+# miletorix-vitepress-image-group 
 
 Vue 3 component to render responsive image groups with automatic layout styling (big, double or icon).
 
 ![npm](https://img.shields.io/npm/v/@miletorix/vitepress-image-group) ![npm](https://img.shields.io/npm/dw/@miletorix/vitepress-image-group) ![license](https://img.shields.io/npm/l/@miletorix/vitepress-image-group)
 
 <p align="center">
-  <img src="/demo-1.png" alt="vitepress-enhanced-site-links demo" width="800">
+  <img src="/demo-1.png" alt="miletorix-vitepress-image-group demo" width="800">
 </p>
 
 ## Styling
