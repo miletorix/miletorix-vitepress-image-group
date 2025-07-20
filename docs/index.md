@@ -1,3 +1,11 @@
+---
+prev: false
+next: false
+layout: doc
+outline: [2, 3]
+sidebar: false
+---
+
 # miletorix-vitepress-image-group
 
 Vue 3 component to render responsive image groups with automatic layout styling (big, double or icon).
@@ -5,7 +13,7 @@ Vue 3 component to render responsive image groups with automatic layout styling 
 ![npm](https://img.shields.io/npm/v/@miletorix/vitepress-image-group) ![npm](https://img.shields.io/npm/dw/@miletorix/vitepress-image-group) ![license](https://img.shields.io/npm/l/@miletorix/vitepress-image-group)
 
 <p align="center">
-  <img src="/assets/demo-1.png" alt="vitepress-enhanced-site-links demo" width="800">
+  <img src="/demo-1.png" alt="vitepress-enhanced-site-links demo" width="800">
 </p>
 
 ## Styling
@@ -25,7 +33,7 @@ You can override these classes in your own styles.
 
 ## Installation
 
-```sh
+```sh [npm]
 npm i @miletorix/vitepress-image-group
 ```
 
@@ -33,8 +41,7 @@ npm i @miletorix/vitepress-image-group
 
 ### Configuration
 
-```typescript
-// docs/.vitepress/theme/index.ts
+```typescript  [docs/.vitepress/theme/index.ts]
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
  
@@ -61,17 +68,20 @@ export default {
 />
 ```
 
-> [!WARNING]
-> Type required: `'big'` | `'double'` | `'icon'`
+:::danger
+Type required: `'big'` | `'double'` | `'icon'`
+:::
 
-> [!NOTE]
-> Alt text is optional, default is `"ImageGroup" - ${type}``
+:::tip
+Alt text is optional, default is `"ImageGroup" - ${type}``
+:::
 
-> [!NOTE]
-> 3 types of image grouping are supported:
-> - `big` (800px wide single image)
-> - `double` (two images side by side)
-> - `icon` (small 64×64px images in a row)
+:::tip
+3 types of image grouping are supported:
+- `big` (800px wide single image)
+- `double` (two images side by side)
+- `icon` (small 64×64px images in a row)
+:::
 
 ## Examples
 
@@ -90,7 +100,12 @@ export default {
 
 **Output:**
 
-![demo-2](./assets/demo-2.png) 
+<ImageGroup
+  :sources="[
+    'demo-2.jpg'
+  ]"
+  type="big"
+/>
 
 ### Image Group - `double`
 
@@ -108,7 +123,13 @@ export default {
 
 **Output:**
 
-![demo-3](./assets/demo-3.png) 
+<ImageGroup
+  :sources="[
+    'demo-3.jpg',
+    'demo-4.jpg'
+  ]"
+  type="double"
+/>
 
 ### Image Group - `icon`
 
@@ -128,4 +149,12 @@ export default {
 
 **Output:**
 
-![demo-4](./assets/demo-4.png) 
+<ImageGroup
+  :sources="[
+    'edge-logo.png',
+    'chrome-logo.png',
+    'firefox-logo.png',
+    'safari-logo.png'
+  ]"
+  type="icon"
+/>
