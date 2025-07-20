@@ -4,7 +4,7 @@ import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-i
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "miletorix-vitepress-image-group",
-  base: '/vitepress-image-group/',
+  base: '/miletorix-vitepress-image-group/',
   description: "Vue 3 component to render responsive image groups with automatic layout styling (icon or big).",
   head: [
     ['link', { rel: 'icon', type: 'image/png', href: 'favicon.png' }],

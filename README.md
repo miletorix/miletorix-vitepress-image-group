@@ -8,6 +8,14 @@ Vue 3 component to render responsive image groups with automatic layout styling 
   <img src="/assets/demo-1.png" alt="vitepress-enhanced-site-links demo" width="800">
 </p>
 
+## Live Demo and more information
+
+✨ See it in action:  
+👉 [https://miletorix.github.io/miletorix-vitepress-image-group/](https://miletorix.github.io/miletorix-vitepress-image-group/)
+
+📦 NPM Package:  
+👉 [https://www.npmjs.com/package/@miletorix/vitepress-image-group](https://www.npmjs.com/package/@miletorix/vitepress-image-group)
+
 ## Styling
 
 The layout is controlled via CSS classes:
