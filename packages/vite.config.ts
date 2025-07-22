@@ -7,6 +7,7 @@ export default defineConfig({
     lib: {
       entry: 'src/index.ts',
       name: 'ImageGroup',
+      formats: ['es', 'umd'],
       fileName: (format) => `image-group.${format}.js`
     },
     cssCodeSplit: true,
