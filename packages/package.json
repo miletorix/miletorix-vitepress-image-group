@@ -1,10 +1,10 @@
 {
   "name": "@miletorix/vitepress-image-group",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "https://github.com/miletorix/miletorix-vitepress-image-group/"
+    "url": "https://github.com/miletorix/miletorix-vitepress-image-group.git"
   },
   "homepage": "https://miletorix.github.io/miletorix-vitepress-image-group/",
   "description": "Vue 3 component to render responsive image groups with automatic layout styling (big, double or icon).",

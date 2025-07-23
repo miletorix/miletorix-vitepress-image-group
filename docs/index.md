@@ -10,7 +10,9 @@ sidebar: false
 
 Vue 3 component to render responsive image groups with automatic layout styling (big, double or icon).
 
-![npm](https://img.shields.io/npm/v/@miletorix/vitepress-image-group) ![npm](https://img.shields.io/npm/dw/@miletorix/vitepress-image-group) ![license](https://img.shields.io/npm/l/@miletorix/vitepress-image-group)
+![npm](https://img.shields.io/npm/v/@miletorix/vitepress-image-group)  
+![npm](https://img.shields.io/npm/dw/@miletorix/vitepress-image-group)  
+![license](https://img.shields.io/npm/l/@miletorix/vitepress-image-group)
 
 <p align="center">
   <img src="/demo-1.png" alt="miletorix-vitepress-image-group demo" width="800">
@@ -65,23 +67,21 @@ export default {
   ]"
   type="type..."
   alt="alt text..."
+  caption="caption text..."
 />
 ```
 
-:::danger
-Type required: `'big'` | `'double'` | `'icon'`
-:::
+> [!IMPORTANT]
+> Type required: `'big'` | `'double'` | `'icon'`
 
-:::tip
-Alt text is optional, default is `"ImageGroup" - ${type}``
-:::
+> [!NOTE]
+> **Alt** and **caption** text is optional, default alt text is **ImageGroup - type**
 
-:::tip
-3 types of image grouping are supported:
-- `big` (800px wide single image)
-- `double` (two images side by side)
-- `icon` (small 64×64px images in a row)
-:::
+> [!NOTE]
+> 3 types of image grouping are supported:
+> - `big` (800px wide single image)
+> - `double` (two images side by side)
+> - `icon` (small 64×64px images in a row)
 
 ## Examples
 
@@ -92,9 +92,10 @@ Alt text is optional, default is `"ImageGroup" - ${type}``
 ```vue [example.md]
 <ImageGroup
   :sources="[
-    '/img/demo-2.jpg'
+    'demo-2.jpg'
   ]"
   type="big"
+  caption="Rolling hills, Moravia, Czech Republic"
 />
 ```
 
@@ -105,6 +106,7 @@ Alt text is optional, default is `"ImageGroup" - ${type}``
     'demo-2.jpg'
   ]"
   type="big"
+  caption="Rolling hills, Moravia, Czech Republic"
 />
 
 ### Image Group - `double`
@@ -118,6 +120,7 @@ Alt text is optional, default is `"ImageGroup" - ${type}``
     '/img/demo-4.jpg'
   ]"
   type="double"
+  caption="Images from both sides"
 />
 ```
 
@@ -129,6 +132,7 @@ Alt text is optional, default is `"ImageGroup" - ${type}``
     'demo-4.jpg'
   ]"
   type="double"
+  caption="Images from both sides"
 />
 
 ### Image Group - `icon`
@@ -144,6 +148,7 @@ Alt text is optional, default is `"ImageGroup" - ${type}``
     '/img/safari-logo.png'
   ]"
   type="icon"
+  caption="Browser icons: MS Edge, Google Chrome, Mozilla FireFox, Apple Safari"
 />
 ```
 
@@ -157,4 +162,5 @@ Alt text is optional, default is `"ImageGroup" - ${type}``
     'safari-logo.png'
   ]"
   type="icon"
+  caption="Browser icons: MS Edge, Google Chrome, Mozilla FireFox, Apple Safari"
 />

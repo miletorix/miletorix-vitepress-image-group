@@ -66,14 +66,15 @@ export default {
   ]"
   type="type..."
   alt="alt text..."
+  caption="caption text..."
 />
 ```
 
-> [!WARNING]
+> [!IMPORTANT]
 > Type required: `'big'` | `'double'` | `'icon'`
 
 > [!NOTE]
-> Alt text is optional, default is `"ImageGroup" - ${type}``
+> **Alt** and **caption** text is optional, default alt text is **ImageGroup - type**
 
 > [!NOTE]
 > 3 types of image grouping are supported:
@@ -87,18 +88,19 @@ export default {
 
 **Input:**
 
-```vue [example.md]
+```vue
 <ImageGroup
   :sources="[
-    '/img/demo-2.jpg'
+    'demo-2.jpg'
   ]"
   type="big"
+  caption="Rolling hills, Moravia, Czech Republic"
 />
 ```
 
 **Output:**
 
-![demo-2](./assets/demo-2.png) 
+![demo-2](./assets/demo-2-1.png) 
 
 ### Image Group - `double`
 
@@ -111,18 +113,19 @@ export default {
     '/img/demo-4.jpg'
   ]"
   type="double"
+  caption="Images from both sides"
 />
 ```
 
 **Output:**
 
-![demo-3](./assets/demo-3.png) 
+![demo-3](./assets/demo-3-2.png) 
 
 ### Image Group - `icon`
 
 **Input:**
 
-```vue [example.md]
+```vue
 <ImageGroup
   :sources="[
     '/img/edge-logo.png',
@@ -131,9 +134,10 @@ export default {
     '/img/safari-logo.png'
   ]"
   type="icon"
+  caption="Browser icons: MS Edge, Google Chrome, Mozilla FireFox, Apple Safari"
 />
 ```
 
 **Output:**
 
-![demo-4](./assets/demo-4.png) 
+![demo-4](./assets/demo-4-2.png) 
