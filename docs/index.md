@@ -132,7 +132,7 @@ export default {
     'demo-4.jpg'
   ]"
   type="double"
-  caption="Images from both sides"
+  caption="Images from both sides."
 />
 
 ### Image Group - `icon`
