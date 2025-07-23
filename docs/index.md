@@ -95,7 +95,7 @@ export default {
     'demo-2.jpg'
   ]"
   type="big"
-  caption="Rolling hills, Moravia, Czech Republic"
+  caption="Rolling hills, Moravia, Czech Republic."
 />
 ```
 
@@ -120,7 +120,7 @@ export default {
     '/img/demo-4.jpg'
   ]"
   type="double"
-  caption="Images from both sides"
+  caption="Images from both sides."
 />
 ```
 
@@ -148,7 +148,7 @@ export default {
     '/img/safari-logo.png'
   ]"
   type="icon"
-  caption="Browser icons: MS Edge, Google Chrome, Mozilla FireFox, Apple Safari"
+  caption="Browser icons: MS Edge, Google Chrome, Mozilla FireFox, Apple Safari."
 />
 ```
 
@@ -162,5 +162,5 @@ export default {
     'safari-logo.png'
   ]"
   type="icon"
-  caption="Browser icons: MS Edge, Google Chrome, Mozilla FireFox, Apple Safari"
+  caption="Browser icons: MS Edge, Google Chrome, Mozilla FireFox, Apple Safari."
 />
