@@ -1,6 +1,5 @@
 <template>
   <div :class="containerClass">
-    <!-- Тип: icon -->
     <div v-if="computedType === 'icon'" class="image-group-images icon-group">
       <img
         v-for="(src, index) in sources"
@@ -12,7 +11,6 @@
       />
     </div>
 
-    <!-- Все остальные типы -->
     <div v-else class="image-group-images">
       <img
         v-for="(src, index) in sources"
@@ -25,7 +23,6 @@
       />
     </div>
 
-    <!-- Подпись -->
     <p v-if="caption" class="image-group-caption">
       {{ caption }}
     </p>
@@ -39,7 +36,7 @@ import { computed } from 'vue'
 const props = defineProps<{
   sources: string[]
   type?: 'icon' | 'big' | 'double' | 'auto' | 'manual'
-  width?: string // например, '300px' или '50%'
+  width?: string 
   alt?: string
   caption?: string
 }>()
@@ -67,7 +64,7 @@ const imageStyle = computed(() => {
 </script>
 
 <style scoped>
-/* Контейнеры */
+
 .image-preview-div-for-icon,
 .image-preview-div-for-big,
 .image-preview-div-for-double,
@@ -84,16 +81,16 @@ const imageStyle = computed(() => {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 20px; /* Было 12-16px, теперь больше для icon */
+  gap: 20px; 
 }
 
 .image-group-images.icon-group {
   justify-content: space-evenly;
-  gap: 0; /* space-evenly уже делает равные отступы */
+  gap: 0; 
   width: 100%;
 }
 
-/* Стили изображений */
+
 .image-preview-icon {
   width: 70px;
   height: 70px;
@@ -125,7 +122,7 @@ const imageStyle = computed(() => {
   transition: transform 0.2s ease-in-out;
 }
 
-/* manual — настраивается через prop */
+
 .image-preview-manual {
   padding: 8px;
   border-radius: 12px;
@@ -134,7 +131,7 @@ const imageStyle = computed(() => {
   transition: transform 0.2s ease-in-out;
 }
 
-/* Подпись */
+
 .image-group-caption {
   margin-top: 8px;
   font-size: 0.9rem;
