@@ -1,68 +1,82 @@
 <template>
   <div :class="containerClass">
-    <!-- для big и double обёртка, для icon — без неё -->
-    <div v-if="type !== 'icon'" class="image-group-images">
+    <!-- Тип: icon -->
+    <div v-if="computedType === 'icon'" class="image-group-images icon-group">
       <img
         v-for="(src, index) in sources"
         :key="index"
         :src="src"
-        :alt="`${alt || 'ImageGroup'} - ${type}`"
-        :class="imageClass"
+        :alt="`${alt || 'ImageGroup'} - ${computedType}`"
+        class="image-preview-icon"
         loading="lazy"
       />
     </div>
-    <template v-else>
+
+    <!-- Все остальные типы -->
+    <div v-else class="image-group-images">
       <img
         v-for="(src, index) in sources"
         :key="index"
         :src="src"
-        :alt="`${alt || 'ImageGroup'} - ${type}`"
+        :alt="`${alt || 'ImageGroup'} - ${computedType}`"
         :class="imageClass"
+        :style="imageStyle"
         loading="lazy"
       />
-    </template>
+    </div>
+
+    <!-- Подпись -->
     <p v-if="caption" class="image-group-caption">
       {{ caption }}
     </p>
   </div>
 </template>
 
+
 <script setup lang="ts">
 import { computed } from 'vue'
 
 const props = defineProps<{
   sources: string[]
-  type?: string
+  type?: 'icon' | 'big' | 'double' | 'auto' | 'manual'
+  width?: string // например, '300px' или '50%'
   alt?: string
   caption?: string
 }>()
 
-const imageClass = computed(() => {
-  return `image-preview-${props.type ?? 'icon'}`
+const computedType = computed(() => {
+  if (props.type && props.type !== 'auto') return props.type
+  const count = props.sources.length
+  if (count === 1) return 'big'
+  if (count === 2) return 'double'
+  return 'icon'
 })
 
-const containerClass = computed(() => {
-  return `image-preview-div-for-${props.type ?? 'icon'}`
+const imageClass = computed(() =>
+  computedType.value === 'manual' ? 'image-preview-manual' : `image-preview-${computedType.value}`
+)
+
+const containerClass = computed(() => `image-preview-div-for-${computedType.value}`)
+
+const imageStyle = computed(() => {
+  if (computedType.value === 'manual' && props.width) {
+    return { width: props.width, height: 'auto' }
+  }
+  return {}
 })
 </script>
 
 <style scoped>
-.image-preview-div-for-icon {
-  display: flex;
-  justify-content: space-evenly; /* ключевой момент */
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 10px;
-}
-
+/* Контейнеры */
+.image-preview-div-for-icon,
 .image-preview-div-for-big,
-.image-preview-div-for-double {
+.image-preview-div-for-double,
+.image-preview-div-for-manual {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  padding: 10px;
+  gap: 12px;
+  padding: 12px;
 }
 
 .image-group-images {
@@ -70,45 +84,62 @@ const containerClass = computed(() => {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 20px; /* Было 12-16px, теперь больше для icon */
 }
 
+.image-group-images.icon-group {
+  justify-content: space-evenly;
+  gap: 0; /* space-evenly уже делает равные отступы */
+  width: 100%;
+}
+
+/* Стили изображений */
 .image-preview-icon {
-  width: 64px;
-  height: 64px;
+  width: 70px;
+  height: 70px;
   border-radius: 12px;
   padding: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   object-fit: contain;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s ease-in-out;
 }
 
 .image-preview-big {
   width: 800px;
+  max-width: 100%;
   height: auto;
   border-radius: 12px;
   padding: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   object-fit: contain;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s ease-in-out;
 }
 
 .image-preview-double {
-  box-sizing: border-box;
   width: 47%;
+  height: auto;
   padding: 8px;
   border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   object-fit: contain;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s ease-in-out;
 }
 
+/* manual — настраивается через prop */
+.image-preview-manual {
+  padding: 8px;
+  border-radius: 12px;
+  object-fit: contain;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Подпись */
 .image-group-caption {
   margin-top: 8px;
   font-size: 0.9rem;
   text-align: center;
   color: var(--vp-c-text-2, #666);
-  max-width: 100%;
   line-height: 1.4;
   font-style: italic;
 }

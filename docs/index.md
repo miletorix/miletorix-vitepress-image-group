@@ -18,16 +18,6 @@ Vue 3 component to render responsive image groups with automatic layout styling 
   <img src="/demo-1.png" alt="miletorix-vitepress-image-group demo" width="800">
 </p>
 
-## Styling
-
-The layout is controlled via CSS classes:
-
-- `.image-preview-icon`
-- `.image-preview-big`
-- `.image-preview-double`
-
-You can override these classes in your own styles.
-
 ## Limitations
 
 - No lazy loading customization (yet).
@@ -72,16 +62,18 @@ export default {
 ```
 
 > [!IMPORTANT]
-> Type required: `'big'` | `'double'` | `'icon'`
+> Type required: `'icon' | 'big' | 'double' | 'auto' | 'manual'`
 
 > [!NOTE]
 > **Alt** and **caption** text is optional, default alt text is **ImageGroup - type**
 
 > [!NOTE]
-> 3 types of image grouping are supported:
+> 5 types of image grouping are supported:
 > - `big` (800px wide single image)
 > - `double` (two images side by side)
-> - `icon` (small 64×64px images in a row)
+> - `icon` (small 70×70px images in a row)
+> - `auto` (full size image)
+> - `manual` (manual width and automatic height)
 
 ## Examples
 
@@ -148,7 +140,7 @@ export default {
     '/img/safari-logo.png'
   ]"
   type="icon"
-  caption="Browser icons: MS Edge, Google Chrome, Mozilla FireFox, Apple Safari."
+  caption="Browser icons: MS Edge, Google Chrome, Mozilla FireFox, Apple Safari"
 />
 ```
 
@@ -162,5 +154,53 @@ export default {
     'safari-logo.png'
   ]"
   type="icon"
-  caption="Browser icons: MS Edge, Google Chrome, Mozilla FireFox, Apple Safari."
+  caption="Browser icons: MS Edge, Google Chrome, Mozzila Firefox, Apple Safari"
+/>
+
+### Image Group - auto
+
+**Input:**
+```vue
+<ImageGroup
+  :sources="[
+    'demo-4.jpg'
+  ]"
+  type="auto"
+  caption="Full size image"
+/>
+```
+
+**Output:**
+
+<ImageGroup
+  :sources="[
+    'demo-4.jpg'
+  ]"
+  type="auto"
+  caption="Full size image"
+/>
+
+### Image Group - manual
+
+**Input:**
+```vue
+<ImageGroup
+  :sources="[
+    'demo-3.jpg'
+  ]"
+  type="manual"
+  width="300px"
+  caption="Manual image size"
+/>
+```
+
+**Output:**
+
+<ImageGroup
+  :sources="[
+    'demo-3.jpg'
+  ]"
+  type="manual"
+  width="300px"
+  caption="Manual image size"
 />

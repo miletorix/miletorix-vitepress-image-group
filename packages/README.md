@@ -11,16 +11,6 @@ Vue 3 component to render responsive image groups with automatic layout styling 
 ✨ See it in action:  
 👉 [https://miletorix.github.io/miletorix-vitepress-image-group/](https://miletorix.github.io/miletorix-vitepress-image-group/)
 
-## Styling
-
-The layout is controlled via CSS classes:
-
-- `.image-preview-icon`
-- `.image-preview-big`
-- `.image-preview-double`
-
-You can override these classes in your own styles.
-
 ## Limitations
 
 - No lazy loading customization (yet).
@@ -65,14 +55,16 @@ export default {
 />
 ```
 
-> Type required: `'big'` | `'double'` | `'icon'`
+> Type required: `'icon' | 'big' | 'double' | 'auto' | 'manual'`
 
 > **Alt** and **caption** text is optional, default alt text is **ImageGroup - type**
 
-> 3 types of image grouping are supported:
+> 5 types of image grouping are supported:
 > - `big` (800px wide single image)
 > - `double` (two images side by side)
-> - `icon` (small 64×64px images in a row)
+> - `icon` (small 70×70px images in a row)
+> - `auto` (full size image)
+> - `manual` (manual width and automatic height)
 
 ## Examples
 
@@ -133,3 +125,38 @@ export default {
 **Output:**
 
 ![demo-4](https://github.com/miletorix/miletorix-vitepress-image-group/raw/main/assets/demo-4-2.png) 
+
+### Image Group - auto
+
+**Input:**
+```vue
+<ImageGroup
+  :sources="[
+    'demo-4.jpg'
+  ]"
+  type="auto"
+  caption="Full size image"
+/>
+```
+
+**Output:**
+
+![demo-5](https://github.com/miletorix/miletorix-vitepress-image-group/raw/main/assets/demo-5.png) 
+
+### Image Group - manual
+
+**Input:**
+```vue
+<ImageGroup
+  :sources="[
+    'demo-3.jpg'
+  ]"
+  type="manual"
+  width="300px"
+  caption="Manual image size"
+/>
+```
+
+**Output:**
+
+![demo-6](https://github.com/miletorix/miletorix-vitepress-image-group/raw/main/assets/demo-6.png) 

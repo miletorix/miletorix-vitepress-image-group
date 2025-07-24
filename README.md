@@ -16,16 +16,6 @@ Vue 3 component to render responsive image groups with automatic layout styling 
 📦 NPM Package:  
 👉 [https://www.npmjs.com/package/@miletorix/vitepress-image-group](https://www.npmjs.com/package/@miletorix/vitepress-image-group)
 
-## Styling
-
-The layout is controlled via CSS classes:
-
-- `.image-preview-icon`
-- `.image-preview-big`
-- `.image-preview-double`
-
-You can override these classes in your own styles.
-
 ## Limitations
 
 - No lazy loading customization (yet).
@@ -71,16 +61,18 @@ export default {
 ```
 
 > [!IMPORTANT]
-> Type required: `'big'` | `'double'` | `'icon'`
+> Type required: `'icon' | 'big' | 'double' | 'auto' | 'manual'`
 
 > [!NOTE]
 > **Alt** and **caption** text is optional, default alt text is **ImageGroup - type**
 
 > [!NOTE]
-> 3 types of image grouping are supported:
+> 5 types of image grouping are supported:
 > - `big` (800px wide single image)
 > - `double` (two images side by side)
-> - `icon` (small 64×64px images in a row)
+> - `icon` (small 70×70px images in a row)
+> - `auto` (full size image)
+> - `manual` (manual width and automatic height)
 
 ## Examples
 
@@ -141,3 +133,38 @@ export default {
 **Output:**
 
 ![demo-4](./assets/demo-4-2.png) 
+
+### Image Group - auto
+
+**Input:**
+```vue
+<ImageGroup
+  :sources="[
+    'demo-4.jpg'
+  ]"
+  type="auto"
+  caption="Full size image"
+/>
+```
+
+**Output:**
+
+![demo-5](./assets/demo-5.png) 
+
+### Image Group - manual
+
+**Input:**
+```vue
+<ImageGroup
+  :sources="[
+    'demo-3.jpg'
+  ]"
+  type="manual"
+  width="300px"
+  caption="Manual image size"
+/>
+```
+
+**Output:**
+
+![demo-6](./assets/demo-6.png)
