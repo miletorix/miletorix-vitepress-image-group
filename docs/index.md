@@ -98,6 +98,7 @@ export default {
     'demo-2.jpg'
   ]"
   type="big"
+  alt="Rolling hills, Moravia, Czech Republic"
   caption="Rolling hills, Moravia, Czech Republic."
 />
 

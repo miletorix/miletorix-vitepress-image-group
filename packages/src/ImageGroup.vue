@@ -5,7 +5,7 @@
         v-for="(src, index) in sources"
         :key="index"
         :src="src"
-        :alt="`${alt || 'ImageGroup'} - ${computedType}`"
+        :alt="alt ?? `ImageGroup - ${computedType}`"
         class="image-preview-icon"
         loading="lazy"
       />
@@ -16,7 +16,7 @@
         v-for="(src, index) in sources"
         :key="index"
         :src="src"
-        :alt="`${alt || 'ImageGroup'} - ${computedType}`"
+        :alt="alt ?? `ImageGroup - ${computedType}`"
         :class="imageClass"
         :style="imageStyle"
         loading="lazy"
@@ -80,8 +80,7 @@ const imageStyle = computed(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 20px; 
+  gap: 20px;
 }
 
 .image-group-images.icon-group {
@@ -113,13 +112,17 @@ const imageStyle = computed(() => {
 }
 
 .image-preview-double {
-  width: 47%;
+  width: calc(50% - 10px); /* учтён gap 20px */
   height: auto;
   padding: 8px;
   border-radius: 12px;
   object-fit: contain;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s ease-in-out;
+}
+
+.image-preview-div-for-double .image-group-images {
+  flex-wrap: nowrap; /* 🔥 ключевая строчка */
 }
 
 
