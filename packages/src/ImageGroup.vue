@@ -5,7 +5,7 @@
         v-for="(src, index) in sources"
         :key="index"
         :src="src"
-        :alt="alt ?? `ImageGroup - ${computedType}`"
+        :alt="computedAlt"
         class="image-preview-icon"
         loading="lazy"
       />
@@ -16,7 +16,7 @@
         v-for="(src, index) in sources"
         :key="index"
         :src="src"
-        :alt="alt ?? `ImageGroup - ${computedType}`"
+        :alt="computedAlt"
         :class="imageClass"
         :style="imageStyle"
         loading="lazy"
@@ -47,6 +47,10 @@ const computedType = computed(() => {
   if (count === 1) return 'big'
   if (count === 2) return 'double'
   return 'icon'
+})
+
+const computedAlt = computed(() => {
+  return props.caption || props.alt || `ImageGroup - ${computedType.value}`
 })
 
 const imageClass = computed(() =>

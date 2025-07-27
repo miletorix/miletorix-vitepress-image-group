@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@miletorix/vitepress-back-to-top-button": "^0.2.3",
-    "@miletorix/vitepress-image-group": "^1.1.1",
+    "@miletorix/vitepress-image-group": "^1.1.2",
     "markdown-it": "^14.1.0",
     "vitepress-plugin-group-icons": "^1.6.1"
   }
