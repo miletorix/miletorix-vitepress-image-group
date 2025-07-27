@@ -87,7 +87,7 @@ export default {
     'demo-2.jpg'
   ]"
   type="big"
-  caption="Rolling hills, Moravia, Czech Republic."
+  caption='"Rolling hills", Moravia, Czech Republic.'
 />
 ```
 
@@ -98,7 +98,7 @@ export default {
     'demo-2.jpg'
   ]"
   type="big"
-  caption="Rolling hills, Moravia, Czech Republic."
+  caption='"Rolling hills", Moravia, Czech Republic.'
 />
 
 ### Image Group - `double`

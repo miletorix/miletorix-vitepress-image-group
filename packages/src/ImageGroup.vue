@@ -49,8 +49,17 @@ const computedType = computed(() => {
   return 'icon'
 })
 
+function escapeHTML(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+}
+
 const computedAlt = computed(() => {
-  return props.caption || props.alt || `ImageGroup - ${computedType.value}`
+  const base = props.caption || props.alt || `ImageGroup - ${computedType.value}`
+  return escapeHTML(base)
 })
 
 const imageClass = computed(() =>
